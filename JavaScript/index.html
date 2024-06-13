@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tarefas</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <h1>Lista de Tarefas</h1>
+    <div>
+        <label for="titulo">Título da Tarefa:</label>
+        <input type="text" id="titulo" name="titulo">
+    </div>
+    <div>
+        <label for="descricao">Descrição da Tarefa:</label>
+        <br>
+        <textarea id="descricao" name="descricao" rows="4" cols="50"></textarea>
+    </div>
+    <div>
+        <button onclick="adicionarTarefa()">Adicionar Tarefa</button>
+    </div>
+    <br>
+    <table id="tabelaTarefas">
+        <thead>
+            <tr>
+                <th>Título</th>
+                <th>Descrição</th>
+                <th>Ação</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Linhas das tarefas serão adicionadas aqui -->
+        </tbody>
+    </table>
+
+    <script src="Atividade06.js"></script>
+</body>
+</html>
