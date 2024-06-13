@@ -1,31 +1,30 @@
-function addTask() {
-    const title = document.getElementById('task-title').value;
-    const desc = document.getElementById('task-desc').value;
+function adicionarTarefa() {
+    const titulo = document.getElementById('titulo').value;
+    const descricao = document.getElementById('descricao').value;
 
-    if (title === "" || desc === "") {
-        alert("Por favor, preencha ambos os campos.");
+    if (titulo === '' || descricao === '') {
+        alert('Por favor, preencha todos os campos.');
         return;
     }
 
-    const table = document.getElementById('task-table').getElementsByTagName('tbody')[0];
-    const newRow = table.insertRow();
+    const tabela = document.getElementById('tabelaTarefas').getElementsByTagName('tbody')[0];
+    const novaLinha = tabela.insertRow();
 
-    const titleCell = newRow.insertCell(0);
-    const descCell = newRow.insertCell(1);
-    const actionCell = newRow.insertCell(2);
+    const celulaTitulo = novaLinha.insertCell(0);
+    const celulaDescricao = novaLinha.insertCell(1);
+    const celulaAcoes = novaLinha.insertCell(2);
 
-    titleCell.textContent = title;
-    descCell.textContent = desc;
+    celulaTitulo.innerText = titulo;
+    celulaDescricao.innerText = descricao;
 
-    const deleteBtn = document.createElement('button');
-    deleteBtn.textContent = "Excluir";
-    deleteBtn.className = "delete-btn";
-    deleteBtn.onclick = function() {
-        const row = this.parentNode.parentNode;
-        row.parentNode.removeChild(row);
+    const botaoExcluir = document.createElement('button');
+    botaoExcluir.innerText = 'Excluir';
+    botaoExcluir.onclick = function() {
+        tabela.deleteRow(novaLinha.rowIndex - 1);
     };
-    actionCell.appendChild(deleteBtn);
+    celulaAcoes.appendChild(botaoExcluir);
 
-    document.getElementById('task-title').value = "";
-    document.getElementById('task-desc').value = "";
+    // Limpar os campos após adicionar a tarefa
+    document.getElementById('titulo').value = '';
+    document.getElementById('descricao').value = '';
 }
